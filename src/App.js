@@ -29,6 +29,9 @@ class App extends Component {
   }
    console.log(this.state.fontSize);
    }
+   onReset=(value)=>{
+     value===true?this.setState({color:'red',fontSize:15}):this.setState();
+   }
  render(){
    
   return (
@@ -38,7 +41,7 @@ class App extends Component {
 
         <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
          <SizeSetting fontSize={this.state.fontSize} onChangeFontSize={this.onChangeFontSize}/>
-         <Reset/>
+         <Reset onReset={this.onReset}/>
         </div>
 
        <Result color={this.state.color } fontSize={this.state.fontSize}/>
