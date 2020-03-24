@@ -20,19 +20,28 @@ class App extends Component {
      color:params
    })
   }
+  onChangeFontSize=(value)=>{
+  if(this.state.fontSize+value>=8&&this.state.fontSize+value<=36)
+  {
+    this.setState({
+      fontSize:this.state.fontSize+value
+    })
+  }
+   console.log(this.state.fontSize);
+   }
  render(){
    
   return (
     <div className="container mt-50">
       <div className="row">
-       <ColorPicker color={this.state.color} onReceiveColor={this.onSetColor}/>
+       <ColorPicker color={this.state.color}  onReceiveColor={this.onSetColor}/>
 
         <div className="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-         <SizeSetting/>
+         <SizeSetting fontSize={this.state.fontSize} onChangeFontSize={this.onChangeFontSize}/>
          <Reset/>
         </div>
 
-       <Result color={this.state.color}/>
+       <Result color={this.state.color } fontSize={this.state.fontSize}/>
 
       </div>
     </div>
